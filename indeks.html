@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTs NURUL HUDA CIMANGGU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel CSS */
+        :root {
+            --primary: #d4ff00;
+            --secondary: #ffffff;
+            --accent: #f59e0b;
+            --light: #ffffff;
+            --dark: #000000;
+            --success: #10b981;
+            --font-primary: 'Poppins', sans-serif;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: rgb(251, 251, 251);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #086301;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #086301;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(hwb(124 6% 12% / 0.718), #34c907e1), url('c:/Users/Acer/Pictures/HTML/IMG_7224.JPG');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+    
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+      
+        
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Vision Mission */
+        .vision-mission {
+            background-color: #008332;
+        }
+
+        .vm-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vision, .mission {
+            background-color: #07ae15;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .vision h3, .mission h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .vision ul, .mission ul {
+            padding-left: 20px;
+        }
+
+        .vision li, .mission li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .vision li::before, .mission li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Teachers & Staff */
+        .teachers-container {
+            display: grid;
+            background-color: #fff704;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+            gap: 25px;
+        }
+
+        .teacher-card {
+            background-color: #008332;
+            border-radius: 29px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .teacher-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .teacher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover .teacher-image img {
+            transform: scale(1.1);
+        }
+
+        .teacher-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .teacher-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .teacher-info p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* News Section */
+        .news-container {
+            display: grid;
+            flex-direction: row;
+            gap: 10px;
+            overflow: auto;
+            padding-bottom: 10px; /* beri jarak bila ada scrolbar */
+            
+        }
+
+        .news-card {
+            display: grid;
+            background-color: #008332;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .news-image {
+            height: 200px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 50px;
+        }
+
+        .news-date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 500%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(114, 151, 246, 0.977));
+            padding: 20px;
+            color: #ffffff;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #fefeff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #d3dff5;
+        }
+
+        .footer-logo p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(15, 178, 135);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul a {
+            transition: var(--transition);
+        }
+
+        .footer-links ul a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgb(138, 159, 225);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-content, .vm-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: hwb(61 0% 0%);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="e:\baru\BackgroundEraser_20250918_121117876.png">
+                <div class="logo-text">
+                    <h1>MTs NURUL HUDA CIMANGGU</h1>
+                    <p>BERIMAN BERILMU BERPRESTASI</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Profil</a></li>
+                    <li><a href="#teachers">Guru & Staff</a></li>
+                    <li><a href="#news">Berita</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h2>Selamat Datang di Website MTs NURUL HUDA CIMANGGU</h2>
+            <p>Membentuk Generasi yang Beriman dan Berilmu, Berakhlaqul Karimah serta Bermartabat</p>
+            <a href="#about" class="btn">Tentang Kami</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Sekolah</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+    
+                    <h3>MTs NURUL HUDA CIMANGGU</h3>
+                    <p>MTSS NURUL HUDA CIMANGGU, beralamat di Jl. KH. Hasyim No. 10, Desa/Kelurahan Cimanggugirang, Kecamatan Cingambul, Kabupaten Majalengka, Jawa Barat, merupakan lembaga pendidikan swasta yang menaungi jenjang pendidikan MTs. Berdiri sejak tahun 2016 berdasarkan Surat Keputusan Pendirian No. 234 tahun 2016 dan Surat Keputusan Operasional No. 234 tahun 2016, MTSS NURUL HUDA CIMANGGU telah menunjukkan komitmennya dalam melahirkan generasi yang unggul dan berakhlak mulia.</p>
+                    <p>Terbukti dengan raihan akreditasi A dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM) berdasarkan Surat Keputusan No. 012/BAN-PDM/SK/2025 yang diterbitkan pada tanggal 09-09-2019, MTSS NURUL HUDA CIMANGGU telah membuktikan kualitas pembelajaran dan manajemennya yang terstruktur dan berstandar nasional. Hal ini menunjukkan bahwa sekolah ini memiliki fasilitas belajar yang memadai, tenaga pengajar yang profesional, dan kurikulum yang dirancang untuk mengembangkan potensi siswa secara optimal.</p>
+                    <p>Terletak di atas lahan seluas 1,796 meter persegi, MTSS NURUL HUDA CIMANGGU memiliki lingkungan yang conducive untuk menunjang proses belajar mengajar. Sekolah ini juga berkomitmen dalam mencetak generasi muda yang religius dan berakhlak mulia, dengan menggabungkan nilai-nilai Islam dalam proses pembelajaran.</p>
+                    <P>Dengan prestasi dan akreditasi yang mumpuni, MTSS NURUL HUDA CIMANGGU menjadi pilihan yang tepat bagi orang tua yang ingin memberikan pendidikan terbaik bagi putra-putrinya. Sekolah ini tidak hanya mencetak siswa yang cerdas, tetapi juga berakhlak mulia dan siap menghadapi tantangan masa depan.</P>
+                </div>
+                <div class="about-image">
+                    <img src="c:\Users\Acer\Pictures\HTML\IMG_7224.JPG" alt="Gedung MTs Nurul Huda Cimanggu">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="section vision-mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visi & Misi</h2>
+            </div>
+            
+            <div class="vm-container">
+                <div class="vision">
+                    <h3>Visi</h3>
+                    <p>Terbentuknya Insan yang beriman, dan bertaqwa, berakhlaqul karimah serta bermartabat.</p>
+                </div>
+                
+                <div class="mission">
+                    <h3>Misi</h3>
+                    <ul>
+                        <li>Melaksanakan pendidikan islam yang mampu membekali insan yang beriman bertaqwa menuju terbentuknya manusia bermartabat</li>
+                        <li>Melaksanakan nilai-nilai akhlaqul karimah yang sesuai syariat islam</li>
+                        <li>Mengembangkan ilmu pengetahuan, teknologi kecerdasan dan keterampilan </li>
+                        <li>mengembangkan nilai-nilai sosial kemasyarakatan yang berwawasan Pancasila</li>
+        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers & Staff Section -->
+    <section id="teachers" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Guru & Staff</h2>
+            </div>
+            
+            <div class="teachers-container">
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/300x400?prompt=professional%20male%20teacher%20in%20formal%20attire&id=teacher-1" alt="Bapak Ahmad S.Pd - Kepala Sekolah MTs Nurul Huda Cimanggu">
+                    </div>
+                    <div class="teacher-info">
+                        <h4>H. Dani Akhmad Sukiman S.Pd.,M.Pd.</h4>
+                        <p>Kepala Madrasah</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/300x400?prompt=professional%20female%20teacher%20with%20hijab&id=teacher-2" alt="Ibu Siti M.Pd - Wakil Kepala Sekolah">
+                    </div>
+                    <div class="teacher-info">
+                        <h4> Aris Rismawan S.Pd.,</h4>
+                        <p>Wakasek Kurikulum</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/300x400?prompt=mathematics%20teacher%20with%20books&id=teacher-3" alt="Bapak Budi S.Pd - Guru Matematika">
+                    </div>
+                    <div class="teacher-info">
+                        <h4> Dini Islamiati S.Pd.,</h4>
+                        <p>Wakasek Humas</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/300x400?prompt=islamic%20studies%20teacher%20with%20quran&id=teacher-4" alt="Bapak Joko S.Ag - Guru Pendidikan Agama Islam">
+                    </div>
+                    <div class="teacher-info">
+                        <h4> Rudi Risdiana S.Si.,</h4>
+                        <p>Wakasek Kesiswaan</p>
+                    </div>
+                </div> 
+                
+                </div class="teacher-card"
+                    <div class="teacher-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/300x400?prompt=islamic%20studies%20teacher%20with%20quran&id=teacher-4" alt="Bapak Joko S.Ag - Guru Pendidikan Agama Islam">
+                    </div>
+                    <div class="teacher-info">
+                        <h4> Rahmat Utsman S.Pd.I.,</h4>
+                        <p>Wakasek Sarpras </p>
+                </div>
+              </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Berita & Informasi</h2>
+            </div>
+            
+            <div class="news-container">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="c:\Users\Acer\Pictures\HTML\WhatsApp Image 2025-09-25 at 00.22.59_6058ba62.jpg">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">17 September 2025</div>
+                        <h3>Lutfhi Alfian, Ketua OSIS MTs Nurul Huda Cimanggu Raih Juara 1 Matematika di OMI Kabupaten Majalengka</h3>
+                        <p>Siswa berprestasi MTs Nurul Huda Cimanggu, Lutfhi Alfian, berhasil meraih juara 1 bidang Matematika dalam ajang Olimpiade Madrasah Indonesia (OMI) tingkat Kabupaten Majalengka yang diselenggarakan pada tanggal 6–9 September 2025.</p>
+                        <a href="https://mtsnurulhudacimangguu.blogspot.com/2025/09/luthfi-alfian-ketua-osis-mts-nurul-huda.html" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                
+                
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Kegiatan</h2>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="c:\Users\Acer\Pictures\HTML\IMG_9637.JPG" alt="Siswa-siswi belajar di dalam ruang komputer bersama guru">
+                    <div class="gallery-overlay">
+                        <h4>Ruang Belajar Komputer</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="c:\Users\Acer\Pictures\HTML\IMG_0264.JPG" alt="Kegiatan Perayaan Maulid Nabi Muhammad SAW di Gedung Sekolah">
+                    <div class="gallery-overlay">
+                        <h4>Kegiatan Keagamaan</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=school%20sports%20day%20activities&id=gallery-3" alt="Kegiatan Olahraga di Lapangan Sekolah">
+                    <div class="gallery-overlay">
+                        <h4>Kegiatan Olahraga</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=school%20extracurricular%20music%20band&id=gallery-4" alt="Ekstrakurikuler Musik dan Band">
+                    <div class="gallery-overlay">
+                        <h4>Ekstrakurikuler Musik</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=school%20science%20laboratory%20experiment&id=gallery-5" alt="Praktikum di Laboratorium Sains">
+                    <div class="gallery-overlay">
+                        <h4>Praktikum Sains</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=school%20field%20trip%20to%20museum&id=gallery-6" alt="Kunjungan Edukasi ke Museum">
+                    <div class="gallery-overlay">
+                        <h4>Kunjungan Edukasi</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h3>MTs NURUL HUDA CIMANGGU</h3>
+                    <p>BERIMAN BERILMU BERPRESTASI</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1AF3KhCM95/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/mtsnurulhudacimanggu_official?igsh=MTRpOHk1N3kwZmtndQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@mtsnurulhudacimanggu?si=03ML9nT3ajjvWf7x"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Profil Sekolah</a></li>
+                        <li><a href="#teachers">Guru & Staff</a></li>
+                        <li><a href="#news">Berita</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. KH. Hasyim No. 10, Cimanggugirang, Kec. Cingambul, Kab. Majalengka, Jawa Barat</p>
+                    <p><i class="fas fa-phone"></i> 085</p>
+                    <p><i class="fas fa-envelope"></i> info@mtsnurulhuda.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 MTs Nurul Huda Cimanggu. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
